@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>dom manipulation</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<script type="text/javascript" src="jquery.min.js"></script>
+</head>
+<body>
+
+
+<form method="post" action="#">
+    
+    <label>Exercises</label>
+    
+    <fieldset id="exercises">
+        <div class="exercise">
+            <input type="text" name="exercise[]"><button class="remove">x</button>
+        </div>
+    </fieldset>
+            
+    <button id="add_exercise">add exercise</button>
+    
+</form>
+
+<!-- form 2 -->
+
+<form method="post" action="#">
+    
+    <label>todos</label>
+    
+    <fieldset id="todos">
+        <div class="todo">
+            <input type="text" name="todo_"><button class="remove">x</button>
+        </div>
+    </fieldset>
+            
+    <button id="add_todo">add exercise</button>
+    
+</form>
+
+
+
+<!--script 1 -->
+<script>
+	$('#add_exercise').on('click', function() { 
+    $('#exercises').append('<div class="exercise"><input type="text" name="exercise[]"><button class="remove">x</button></div>');
+    return false; //prevent form submission
+});
+
+$('#exercises').on('click', '.remove', function() {
+    $(this).parent().remove();
+    return false; //prevent form submission
+});
+</script>
+
+
+<!--another script-->
+
+<script>
+	var counter = 0;
+	$('#add_todo').on('click', function() { 
+    $('#todos').append('<div class="todo"><input type="text" name=$counter><button class="remove">x</button></div>');
+    counter ++;
+    return false; //prevent form submission
+    
+});
+
+$('#todos').on('click', '.remove', function() {
+    $(this).parent().remove();
+    return false; //prevent form submission
+});
+</script>

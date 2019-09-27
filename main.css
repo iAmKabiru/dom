@@ -1,0 +1,15 @@
+body {
+  padding: 1em;
+}
+.element {
+  background: #eee;
+  width: 200px;
+  height: 40px;
+  padding: 20px 20px 0;
+  text-align: center;
+  margin: 5px 0;
+}
+.buttons {
+  clear: both;
+  margin-top: 10px;
+}
