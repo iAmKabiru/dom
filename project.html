@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+</head>
+<body>
+    
+    <div class="container-fluid" id="app">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="waecform" v-for="(waecform, index) in waecStore" :key="index">
+                    <form @submit.prevent="updateWaec">
+                        <label>Waec {{ index }}</label>
+                        <input type="text" v-model="waecStore[index]" :name="'form-'+index+'waec'">
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+                <hr>
+                <p>{{ waecStore }}</p>
+            </div>
+            <div class="col-md-6">
+
+            </div>
+        </div>
+    </div>
+
+    <script src="vue.js"></script>
+    <script>
+    new Vue({
+        el: '#app',
+        data: () => ({
+            waecStore: [''],
+            waecVal: [''],
+            waec: ''
+        }),
+        methods: {
+            updateWaec () {
+                this.waecStore.push(this.waec)
+                this.waec = ''
+            }
+        }
+    })
+    </script>
+</body>
+</html>
